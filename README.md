@@ -1,35 +1,29 @@
-# MCP Server - Cryptocurrency Market Data Provider
+MCP Server - Cryptocurrency Market Data Provider
 
-# Overview:
-# FastAPI server providing real-time and historical crypto data from multiple exchanges via CCXT.
-# Supports Binance, Kraken, and Coinbase Pro with caching and error handling.
+Overview
+FastAPI server providing real-time and historical crypto data from multiple exchanges via CCXT.
+Supports Binance, Kraken, and Coinbase Pro with caching and error handling.
 
+Setup and Run: Create and activate virtual environment
 
-# Create and activate virtual environment
 python -m venv venv
-# venv\Scripts\activate     # Windows
+# On Windows, activate with:
+# venv\Scripts\activate
+source venv/bin/activate  # For Linux/macOS
 
-# Install dependencies
+Install dependencies:
 pip install -r requirements.txt
 
-# Run server with auto-reload
+Run the server with auto-reload:
 uvicorn app.main:app --reload
 
-# Server URL: http://127.0.0.1:8000
-# API docs: http://127.0.0.1:8000/docs
-
-
-
-# Run tests
+Testing:
 pytest app/tests/
 
-# --- Approach ---
+Approach Summary
 
-# - Uses FastAPI and async CCXT to fetch data from multiple exchanges.
-# - ExchangeClient handles API calls; exchange selectable per request.
-# - Simple caching reduces redundant API calls.
-# - Symbols normalized per exchange format.
-# - Error handling returns clear API errors.
-# - Pydantic models ensure data validation.
-# - Async design supports concurrent requests efficiently.
-
+Uses FastAPI with asynchronous CCXT to fetch data from multiple exchanges.
+ExchangeClient handles API calls; exchange is selectable per request.
+Implements simple caching to reduce redundant external API calls.
+Normalizes trading symbols according to each exchange’s format.
+Provides clear error handling and returns structured API errors.

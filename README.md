@@ -1,29 +1,54 @@
-MCP Server - Cryptocurrency Market Data Provider
 
-Overview
-FastAPI server providing real-time and historical crypto data from multiple exchanges via CCXT.
-Supports Binance, Kraken, and Coinbase Pro with caching and error handling.
+<body>
 
-Setup and Run: Create and activate virtual environment
+<h1>MCP Server - Cryptocurrency Market Data Provider</h1>
 
-python -m venv venv
-# On Windows, activate with:
-# venv\Scripts\activate
-source venv/bin/activate  # For Linux/macOS
+<section>
+  <h2>Overview</h2>
+  <p>
+    This project is a FastAPI-based server that provides real-time and historical cryptocurrency market data from multiple major exchanges using the CCXT library. It supports Binance, Kraken, and Coinbase Pro exchanges and includes caching and error handling for robust API performance.
+  </p>
+</section>
 
-Install dependencies:
-pip install -r requirements.txt
+<section>
+  <h2>Features</h2>
+  <ul>
+    <li>Real-time price retrieval for supported trading pairs</li>
+    <li>Historical OHLCV data fetching with customizable timeframe and limit</li>
+    <li>Support for multiple exchanges, selectable per request</li>
+    <li>In-memory caching to reduce redundant API calls</li>
+    <li>Clear error handling and structured JSON responses</li>
+    <li>Asynchronous implementation for high concurrency</li>
+    <li>Data validation and automatic API docs powered by Pydantic</li>
+  </ul>
+</section>
 
-Run the server with auto-reload:
-uvicorn app.main:app --reload
+<section>
+  <h2>Setup</h2>
+  <ol>
+    <li>
+      Create and activate a Python virtual environment:
+      <pre><code>python -m venv venv
+# Activate the environment:
+venv\Scripts\activate
+      </code></pre>
+    </li>
+    <li>
+      Install required dependencies:
+      <pre><code>pip install -r requirements.txt
+      </code></pre>
+    </li>
+    <li>
+      Start the FastAPI server:
+      <pre><code>uvicorn app.main:app --reload
+      </code></pre>
+    </li>
+  </ol>
+</section>
 
-Testing:
-pytest app/tests/
 
-Approach Summary
 
-Uses FastAPI with asynchronous CCXT to fetch data from multiple exchanges.
-ExchangeClient handles API calls; exchange is selectable per request.
-Implements simple caching to reduce redundant external API calls.
-Normalizes trading symbols according to each exchange’s format.
-Provides clear error handling and returns structured API errors.
+
+
+</body>
+
